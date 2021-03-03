@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.use(express.static("public"));
 
+const port = process.env.PORT;
+
 const mailchimp_url = "https://us1.api.mailchimp.com/3.0";
 const list_id = process.env.MAILCHIMP_LIST_ID;
 
@@ -62,6 +64,6 @@ app.post('/failure', function (req, res) {
     res.redirect('/');
 });
 
-app.listen(3000, function () {
-    console.log('Listening on port: 3000');
+app.listen(port, function () {
+    console.log(`Listening on port: ${port}`);
 });
